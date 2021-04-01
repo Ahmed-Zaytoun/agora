@@ -1,0 +1,21 @@
+main {
+  min-height: 80vh;
+}
+.rating span {
+  margin: 0.05rem;
+}
+h1 {
+  font-size: 1.4rem;
+  padding: 0.1rem;
+}
+h5 {
+  padding: 0.5rem 0;
+}
+th {
+  text-align: center;
+  justify-content: center;
+}
+td {
+  justify-content: center;
+  text-align: center;
+}
