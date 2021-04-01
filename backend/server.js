@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import path, { dirname } from "path";
+import path from "path";
 import morgan from "morgan";
 
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
@@ -33,9 +33,9 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")));
   // ('*') means any route that is not is this file (/api/)
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-  });
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
 } else {
   app.get("/", (req, res) => {
     res.send("API is running ....");
