@@ -17,7 +17,6 @@ import Message from "../components/Message";
 const CartScreen = ({ match, location, history }) => {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
-  console.log(userLogin);
 
   const defaultemail = {
     email: null,
@@ -44,6 +43,11 @@ const CartScreen = ({ match, location, history }) => {
   const checkOutHandler = () => {
     history.push("/login?redirect=shipping");
   };
+  console.log(cartItems);
+  if (cartItems === null) {
+    cartItems = [];
+  }
+  console.log(cartItems);
 
   return (
     <Row>
