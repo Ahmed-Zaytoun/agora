@@ -16,8 +16,6 @@ const UserEditScreen = ({ match, history }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isBlackListed, setIsBlackListed] = useState(false);
 
-  console.log(isBlackListed);
-
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);

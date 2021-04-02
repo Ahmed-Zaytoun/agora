@@ -15,7 +15,6 @@ const Header = () => {
 
   const logoutHandler = () => {
     dispatch(logout());
-    console.log(history);
     history.push("/");
   };
 
