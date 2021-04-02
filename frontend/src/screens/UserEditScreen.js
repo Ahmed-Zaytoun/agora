@@ -22,7 +22,7 @@ const UserEditScreen = ({ match, history }) => {
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
-  console.log(userDetails);
+
   const userAdminUpdate = useSelector((state) => state.userAdminUpdate);
   const {
     loading: loadingUpdate,
@@ -37,7 +37,7 @@ const UserEditScreen = ({ match, history }) => {
       history.push("/admin/userlist");
     } else {
       //if it does not exists or not the requisted on
-      if (!user.name || user._id !== _id) {
+      if (user._id !== _id) {
         dispatch(getUserDetails(_id));
       } else {
         setName(user.name);
@@ -46,7 +46,7 @@ const UserEditScreen = ({ match, history }) => {
         setIsBlackListed(user.isBlackListed);
       }
     }
-  }, [user, _id, dispatch, history, successUpdate, isBlackListed]);
+  }, [user, _id, dispatch, history, successUpdate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -102,7 +102,7 @@ const UserEditScreen = ({ match, history }) => {
                 onChange={(e) => setIsAdmin(e.target.checked)}
               ></Form.Check>
             </Form.Group>
-            <Form.Group controlId="isAdmin">
+            <Form.Group controlId="isBlackListed">
               <Form.Check
                 type="checkbox"
                 label="Do you want to black list this user"
