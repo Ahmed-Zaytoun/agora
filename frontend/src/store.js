@@ -67,13 +67,14 @@ let cartItemsFromStorage = [];
 
 if (userInfoFromStoragr !== null) {
   const { email } = userInfoFromStoragr;
-  cartItemsFromStorage = JSON.parse(localStorage.getItem(`cartItems-${email}`));
+  cartItemsFromStorage = localStorage.getItem(`cartItems-${email}`)
+    ? JSON.parse(localStorage.getItem(`cartItems-${email}`))
+    : [];
 } else {
-  cartItemsFromStorage = JSON.parse(localStorage.getItem("cartItems"));
+  cartItemsFromStorage = localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [];
 }
-// const cartItemsFromStorage = localStorage.getItem("cartItems")
-//   ? JSON.parse(localStorage.getItem("cartItems"))
-//   : [];
 
 const shippingAddressFromStoragr = localStorage.getItem("shippingAddress")
   ? JSON.parse(localStorage.getItem("shippingAddress"))
