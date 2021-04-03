@@ -2,6 +2,8 @@ import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 
+// check if the user is authorized or not and then create a user in the req
+
 const protect = asyncHandler(async (req, res, next) => {
   let token;
   if (
@@ -26,6 +28,8 @@ const protect = asyncHandler(async (req, res, next) => {
     throw new Error("Not authorized, no token");
   }
 });
+
+// use the req to check if the user is an admin
 
 const isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {

@@ -8,7 +8,7 @@ const getProducts = asyncHandler(async (req, res) => {
   const keyword = req.query.keyword
     ? { name: { $regex: req.query.keyword, $options: "i" } }
     : {};
-
+  // regex is used with option i to return the products that contains the keyword regadless of the case
   const pageSize = 12;
   const page = Number(req.query.pageNumber) || 1;
 
@@ -17,7 +17,6 @@ const getProducts = asyncHandler(async (req, res) => {
     .limit(pageSize)
     .skip(pageSize * (page - 1));
 
-  // throw new Error("SOME ERROR");
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 

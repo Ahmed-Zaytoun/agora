@@ -1,3 +1,5 @@
+// initial testing product db
+
 const products = [
   {
     name: "Airpods Wireless Bluetooth Headphones",

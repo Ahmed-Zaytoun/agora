@@ -1,5 +1,7 @@
 import bcrypt from "bcryptjs";
 
+// initial testing users db
+
 const users = [
   {
     name: "Admin User",
